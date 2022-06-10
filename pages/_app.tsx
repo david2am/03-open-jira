@@ -3,13 +3,16 @@ import type { AppProps } from 'next/app'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { darkTheme } from '../themes';
 import { UIProvider } from '../context/ui';
+import { EntriesProvider } from '../context/entries/EntriesProvider';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={darkTheme}>
       <UIProvider>
-        <CssBaseline />
-        <Component {...pageProps} />
+        <EntriesProvider>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </EntriesProvider>
       </UIProvider>
     </ThemeProvider>
   )
