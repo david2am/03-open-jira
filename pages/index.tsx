@@ -15,9 +15,7 @@ const HomePage: NextPage = () => {
           <Card sx={{ height: 'calc(100vh - 100px)' }}>
             <CardHeader title="Pendientes" />
 
-            <CardContent>
-              <EntryList />
-            </CardContent>
+            <EntryList />
 
           </Card>
         </Grid>

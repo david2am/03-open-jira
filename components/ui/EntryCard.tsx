@@ -4,7 +4,7 @@ import { Card, CardActionArea, CardActions, CardContent, Typography } from '@mui
 
 export const EntryCard = () => {
   return (
-    <Card sx={{ marginBottom: '1' }}>
+    <Card sx={{ marginBottom: 1 }}>
         <CardActionArea>
             <Typography sx={{ whiteSpace: 'pre-line' }}>
                 Esta es la descripcion
