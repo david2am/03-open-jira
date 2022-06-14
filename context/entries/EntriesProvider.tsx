@@ -16,19 +16,19 @@ const Entries_INITIAL_STATE: EntriesState = {
     entries: [
         {
             _id: uuidv4(),
-            description: 'Lorem ipsum package',
+            description: 'Pendiente: Lorem ipsum package',
             status: 'pending',
             createdAt: Date.now()
         },
         {
             _id: uuidv4(),
-            description: 'Example line package ipsum package',
+            description: 'En-Progreso: Example line package ipsum package',
             status: 'in-progress',
             createdAt: Date.now() - 1000000
         },
         {
             _id: uuidv4(),
-            description: 'Sort of package uuid lorem',
+            description: 'Terminadas: Sort of package uuid lorem',
             status: 'finished',
             createdAt: Date.now() - 100000
         },
