@@ -2,7 +2,7 @@ import React, { FC, useContext, useMemo, DragEvent } from 'react'
 
 import { List, Paper } from '@mui/material'
 import { EntryCard } from './EntryCard';
-import { EntryStatus } from '../../interfaces';
+import { Entry, EntryStatus } from '../../interfaces';
 
 import { EntriesContext } from '../../context/entries/EntriesContext';
 import { UIContext } from '../../context/ui';
@@ -14,13 +14,23 @@ interface Props {
 }
 
 export const EntryList: FC<Props> = ({ status }) => {
-  const { entries } = useContext( EntriesContext )
-  const { isDragging } = useContext( UIContext )
+  const { entries, updateEntry } = useContext( EntriesContext )
+  const { isDragging, endDragging } = useContext( UIContext )
 
   const entriesByStatus = useMemo( () => entries.filter((e) => e.status === status), [entries, status])
 
   const onDrop = (event: DragEvent<HTMLDivElement>) => {
     const id = event.dataTransfer.getData('text')
+
+    const entry = entries.find(entry => entry._id === id)!
+
+    const entryUpdated: Entry = {
+      ...entry,
+      status
+    }
+
+    updateEntry(entryUpdated)
+    endDragging()
   }
   const allowDrop = (event: DragEvent<HTMLDivElement>) => event.preventDefault()
 
