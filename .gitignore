@@ -38,3 +38,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# db
+mongo/
+
+# env variables
+*.env
