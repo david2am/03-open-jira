@@ -26,25 +26,23 @@ export const connect = async () => {
                 console.log('Connected to previous connection')
                 return
             }
-            await mongoose.disconnect()
-            console.log('Disconnected from MongoDB')
-        }
-        await mongoose.connect('...') // TODO: replace with some env
+            await mongoose.disconnect()        }
+        await mongoose.connect(process.env.MONGO_URL || '') // TODO: replace with some env
         mongoConnection.isConnected = 1
         
-        console.log('Connected to MongoDB;', '...') 
+        console.log('Connected to MongoDB:', process.env.MONGO_URL) 
     } catch (error) {
-        
+        console.error((error as Error).message)
     }
 }
 
 export const disconnect = async () => {
-    if ( mongoConnection.isConnected !== 0 ) return
+    if ( mongoConnection.isConnected === 0 ) return
     
     try {
         await mongoose.disconnect()
         console.log('Disconnected from MongoDB')
     } catch (error) {
-        
+        console.error((error as Error).message)
     }
 }
