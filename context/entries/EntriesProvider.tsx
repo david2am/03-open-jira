@@ -13,26 +13,7 @@ interface Props {
 }
 
 const Entries_INITIAL_STATE: EntriesState = {
-    entries: [
-        {
-            _id: uuidv4(),
-            description: 'Pendiente: Lorem ipsum package',
-            status: 'pending',
-            createdAt: Date.now()
-        },
-        {
-            _id: uuidv4(),
-            description: 'En-Progreso: Example line package ipsum package',
-            status: 'in-progress',
-            createdAt: Date.now() - 1000000
-        },
-        {
-            _id: uuidv4(),
-            description: 'Terminadas: Sort of package uuid lorem',
-            status: 'finished',
-            createdAt: Date.now() - 100000
-        },
-    ]
+    entries: []
 }
 
 

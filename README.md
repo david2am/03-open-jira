@@ -1,8 +1,6 @@
 # Next.js Open Jira App
 
-## Run locally
-
-### DB connection
+## DB connection
 Run local database
 ```
 docker-compose up -d
@@ -14,5 +12,11 @@ MongoDB local connection url:
 mongodb://localhost:27017/entriesdb
 ```
 
-### Set environment variables
+## Set environment variables
 Rename __.env.template__ to __.env__
+
+## Fill DB with mocked data
+Send a GET request to the seed endpoint
+```
+http://localhost:3000/api/seed
+```

@@ -41,6 +41,7 @@ yarn-error.log*
 
 # db
 mongo/
+pages/api/seed.ts
 
 # env variables
 *.env
