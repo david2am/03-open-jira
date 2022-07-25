@@ -26,7 +26,8 @@ export const connect = async () => {
                 console.log('Connected to previous connection')
                 return
             }
-            await mongoose.disconnect()        }
+            await mongoose.disconnect()
+        }
         await mongoose.connect(process.env.MONGO_URL || '') // TODO: replace with some env
         mongoConnection.isConnected = 1
         
