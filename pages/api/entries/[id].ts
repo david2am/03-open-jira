@@ -27,8 +27,17 @@ const updateEntry = async ( req: NextApiRequest, res: NextApiResponse<Data>, id:
     res.status( 200 ).json( updateEntry! )
 }
 
+const getEntry = async ( req: NextApiRequest, res: NextApiResponse<Data>, id: string ) => {
+    const entry = await Entry.findById( id )
+
+    if (!entry) return res.status( 400 ).json( { message: 'No hay entrada con id' } )
+
+    res.status( 200 ).json( entry )
+}
+
 const request: Request = {
     'PUT':  ( req, res, id ) => updateEntry( req, res, id! ),
+    'GET': ( req, res, id ) => getEntry( req, res, id! )
 }
 
 export default function handler ( req: NextApiRequest, res: NextApiResponse<Data> ) {
